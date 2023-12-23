@@ -1,5 +1,6 @@
 import Feed from "../pages/feed";
 import Users from "../pages/users";
+import Login from "../pages/login/login"
 
 export const route = [
     {
@@ -10,6 +11,11 @@ export const route = [
     {
         path: '/users',
         component: <Users/>,
+        exact: true
+    },
+    {
+        path: '/login',
+        component: <Login/>,
         exact: true
     },
 ]
