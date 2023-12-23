@@ -6,13 +6,15 @@ import DialogTitle from "@mui/material/DialogTitle";
 import DialogContent from "@mui/material/DialogContent";
 import DialogActions from "@mui/material/DialogActions";
 import Button from "@mui/material/Button";
-import { TextField } from "@mui/material";
+import { TextField, Typography } from "@mui/material";
 import Box from "@mui/material/Box";
 import { useTheme } from "@mui/system";
 import PostCard from "../components/postCard/postCard";
+import { useNavigate } from "react-router";
 
-const Comunity = () => {
+const Community = () => {
   const theme = useTheme();
+  const navigate = useNavigate();
   const [open, setOpen] = useState(false);
   const handleClose = () => {
     setOpen(false);
@@ -75,6 +77,13 @@ const Comunity = () => {
         >
           Предложить что-либо
         </Button>
+        <Button
+          style={{ marginBottom: "10px" }}
+          variant="contained"
+          onClick={() => navigate("//www.google.ru/forms/about/")}
+        >
+          Создать опрос google forms
+        </Button>
       </Container>
       <Container
         sx={{
@@ -88,4 +97,4 @@ const Comunity = () => {
   );
 };
 
-export default Comunity;
+export default Community;

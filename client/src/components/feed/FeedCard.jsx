@@ -12,10 +12,12 @@ import Typography from "@mui/material/Typography";
 import { red } from "@mui/material/colors";
 import NotificationsActiveIcon from "@mui/icons-material/NotificationsActive";
 import SendIcon from "@mui/icons-material/Send";
-import MoreVertIcon from "@mui/icons-material/MoreVert";
+import { DeleteOutline } from "@mui/icons-material";
+import CreateIcon from "@mui/icons-material/Create";
 import Box from "@mui/material/Box";
 import { useState } from "react";
 import { useTheme } from "@emotion/react";
+import { Container } from "@mui/system";
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -39,26 +41,36 @@ export default function FeedCard() {
 
   return (
     <Card>
-      <CardHeader
-        avatar={
-          <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-            ЧМ
-          </Avatar>
-        }
-        action={
-          <IconButton aria-label="settings">
-            <MoreVertIcon />
+      <Container sx={{ display: "flex", justifyContent: "space-between" }}>
+        <CardHeader
+          avatar={
+            <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
+              ЧМ
+            </Avatar>
+          }
+          title="Черненко Максим Игоревич"
+          subheader="Врач-психолог"
+        />
+        <Box sx={{ display: "flex", alignItems: "center" }}>
+          <IconButton aria-label="editing">
+            <CreateIcon />
           </IconButton>
-        }
-        title="Черненко Максим Игоревич"
-        subheader="Врач-психолог"
-      />
+          <IconButton aria-label="remove">
+            <DeleteOutline />
+          </IconButton>
+        </Box>
+      </Container>
       <CardContent>
         <Box sx={{ marginBottom: "15px" }}>
-          <Typography color="text.main">
+          <Typography
+            color="black"
+            fontSize={24}
+            fontWeight={700}
+            sx={{ margin: "0px 0px 12px 0px" }}
+          >
             Курс "Повышение личной эффективности"
           </Typography>
-          <Typography fontFamily={"Georgia"} color="text.secondary">
+          <Typography fontFamily={"OpenSans"} color="black">
             В ходе курса вы станете онжумания - 1000, прэсс - 500, бегит - 10000
             метров
           </Typography>
@@ -67,7 +79,7 @@ export default function FeedCard() {
           <IconButton aria-label="event">
             <EventIcon />
           </IconButton>
-          25 декабря 2023 года 20:00
+          25 декабря 2023 года в 20:00
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
