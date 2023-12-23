@@ -13,6 +13,7 @@ import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import Box from "@mui/material/Box";
 import { useTheme } from "@mui/system";
+import {useSelector} from "react-redux";
 
 const Feed = () => {
   const theme = useTheme();
@@ -20,7 +21,8 @@ const Feed = () => {
   const handleClose = () => {
     setOpen(false);
   };
-
+  const authState = useSelector(state => state.auth)
+    console.log(authState)
   const lektors = [
     { label: "Maksim" },
     { label: "Nikita" },
