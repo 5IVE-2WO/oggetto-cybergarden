@@ -1,6 +1,7 @@
 import Feed from "../pages/feed";
 import Users from "../pages/users";
 import Comunity from "../pages/comunity";
+import Login from "../pages/login/login";
 
 export const route = [
   {
@@ -16,6 +17,11 @@ export const route = [
   {
     path: "/comunity",
     component: <Comunity />,
+    exact: true,
+  },
+  {
+    path: "/login",
+    component: <Login />,
     exact: true,
   },
 ];
