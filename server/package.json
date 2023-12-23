@@ -1,12 +1,12 @@
 {
-  "name": "oggetto-cybergarden",
+  "name": "oggetto-cybergarden-server",
   "version": "1",
   "description": "",
   "main": "index.js",
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "keywords": [],
   "author": "",
   "license": "ISC"
 }
