@@ -12,7 +12,6 @@ import {DatePicker, LocalizationProvider} from "@mui/x-date-pickers";
 import {AdapterDayjs} from "@mui/x-date-pickers/AdapterDayjs";
 import Box from "@mui/material/Box";
 
-
 const Feed = () => {
     const [open, setOpen] = useState(false)
     const handleClose = () => {
@@ -71,7 +70,7 @@ const Feed = () => {
             </Dialog>
 
             <Container sx={{ marginTop: '30px', maxWidth: '1200px' }} >
-                <Button style={{display: "flex", justifySelf: "flex-end", marginBottom: "10px"}} variant='contained' onClick={() => setOpen(true)}>Создать новое событие</Button>
+                <Button style={{marginBottom: "10px"}} variant='contained' onClick={() => setOpen(true)}>Создать новое событие</Button>
                 <FeedCard/>
             </Container>
         </div>
