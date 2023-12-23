@@ -52,10 +52,10 @@ export default function FeedCard() {
       />
       <CardContent>
         <Box sx={{ marginBottom: "15px" }}>
-          <Typography variant="subtitle1" color="text.main">
+          <Typography color="text.main">
             Курс "Повышение личной эффективности"
           </Typography>
-          <Typography variant="body2" color="text.secondary">
+          <Typography fontFamily={"Georgia"} color="text.secondary">
             В ходе курса вы станете онжумания - 1000, прэсс - 500, бегит - 10000
             метров
           </Typography>

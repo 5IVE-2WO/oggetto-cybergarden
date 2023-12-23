@@ -1,4 +1,6 @@
 import { createTheme } from "@mui/material/styles";
+import Georgia from "../fonts/georgia/georgia.ttf";
+import Montserat from "../fonts/montserrat/Montserrat-VariableFont_wght.ttf";
 
 const theme = createTheme({
   palette: {
@@ -11,7 +13,7 @@ const theme = createTheme({
     },
   },
   typography: {
-    fontFamily: "Montserat, Regular",
+    fontFamily: "Montserat, Medium",
     addition: {
       fontFamily: "Georgia, Regular",
     },
