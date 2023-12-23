@@ -10,12 +10,11 @@ import Avatar from "@mui/material/Avatar";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import { red } from "@mui/material/colors";
-import NotificationsActiveIcon from "@mui/icons-material/NotificationsActive";
-import SendIcon from "@mui/icons-material/Send";
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import ShareIcon from "@mui/icons-material/Share";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import Box from "@mui/material/Box";
-import { useState } from "react";
-import { useTheme } from "@emotion/react";
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -29,9 +28,7 @@ const ExpandMore = styled((props) => {
 }));
 
 export default function FeedCard() {
-  const theme = useTheme();
   const [expanded, setExpanded] = React.useState(false);
-  const [activateNotification, setActivateNotification] = useState(false);
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
@@ -67,21 +64,15 @@ export default function FeedCard() {
           <IconButton aria-label="event">
             <EventIcon />
           </IconButton>
-          25 декабря 2023 года 20:00
+          25 декабря 2023 года
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
-        <IconButton
-          aria-label="Notification"
-          onClick={() => setActivateNotification(!activateNotification)}
-        >
-          <NotificationsActiveIcon
-            sx={
-              activateNotification
-                ? { color: theme.palette.primary.dark }
-                : { color: "grey" }
-            }
-          />
+        <IconButton aria-label="add to favorites">
+          <FavoriteIcon />
+        </IconButton>
+        <IconButton aria-label="share">
+          <ShareIcon />
         </IconButton>
         <ExpandMore
           expand={expanded}
@@ -89,7 +80,7 @@ export default function FeedCard() {
           aria-expanded={expanded}
           aria-label="show more"
         >
-          <SendIcon />
+          <ExpandMoreIcon />
         </ExpandMore>
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
