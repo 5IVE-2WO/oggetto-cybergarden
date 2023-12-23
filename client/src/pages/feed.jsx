@@ -11,9 +11,10 @@ import {Autocomplete, TextField} from "@mui/material";
 import {DatePicker, LocalizationProvider} from "@mui/x-date-pickers";
 import {AdapterDayjs} from "@mui/x-date-pickers/AdapterDayjs";
 import Box from "@mui/material/Box";
-
+import {useTheme} from "@mui/system";
 
 const Feed = () => {
+    const theme = useTheme()
     const [open, setOpen] = useState(false)
     const handleClose = () => {
         setOpen(false)
@@ -66,12 +67,12 @@ const Feed = () => {
                     </Container>
                 </DialogContent>
                 <DialogActions>
-                    <Button onClick={handleClose}>Создать</Button>
+                    <Button onClick={handleClose} sx={{color: theme.palette.primary.black}}>Создать</Button>
                 </DialogActions>
             </Dialog>
 
             <Container sx={{ marginTop: '30px', maxWidth: '1200px' }} >
-                <Button style={{display: "flex", justifySelf: "flex-end", marginBottom: "10px"}} variant='contained' onClick={() => setOpen(true)}>Создать новое событие</Button>
+                <Button style={{marginBottom: "10px"}} variant='contained' onClick={() => setOpen(true)}>Создать новое событие</Button>
                 <FeedCard/>
             </Container>
         </div>
