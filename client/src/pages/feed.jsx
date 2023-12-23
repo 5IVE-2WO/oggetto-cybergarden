@@ -13,11 +13,14 @@ import 'dayjs/locale/de';
 import {useTheme} from "@mui/system";
 import axios from "../utils/axios";
 import dayjs from "dayjs";
+import {useSelector} from "react-redux";
 
 const Feed = () => {
     const theme = useTheme()
 
     const [open, setOpen] = useState(false)
+  
+    const authState = useSelector(state => state.auth)
 
     const handleClose = () => {
         setOpen(false)

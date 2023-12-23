@@ -33,6 +33,7 @@ p {
 .signUpSubtitle {
     font-family: 'Montserrat', sans-serif;
     font-size: 20px;
+    color: #80868B;
 }
 
 .signUpGoogle {
@@ -54,4 +55,6 @@ p {
     width: 300px;
     height: 57px;
     background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    border-radius: 5px;
 }
