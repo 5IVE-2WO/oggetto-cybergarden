@@ -28,7 +28,7 @@ const ExpandMore = styled((props) => {
   }),
 }));
 
-export default function FeedCard() {
+const PostCard = () => {
   const theme = useTheme();
   const [expanded, setExpanded] = React.useState(false);
   const [activateNotification, setActivateNotification] = useState(false);
@@ -97,4 +97,6 @@ export default function FeedCard() {
       </Collapse>
     </Card>
   );
-}
+};
+
+export default PostCard;

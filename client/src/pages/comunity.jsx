@@ -1,33 +1,22 @@
 import React, { useState } from "react";
 import Header from "../components/header";
-import FeedCard from "../components/feed/FeedCard";
 import Container from "@mui/material/Container";
 import Dialog from "@mui/material/Dialog";
 import DialogTitle from "@mui/material/DialogTitle";
 import DialogContent from "@mui/material/DialogContent";
 import DialogActions from "@mui/material/DialogActions";
 import Button from "@mui/material/Button";
-import { Autocomplete, TextField } from "@mui/material";
-import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
-import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
-import { DatePicker } from "@mui/x-date-pickers/DatePicker";
+import { TextField } from "@mui/material";
 import Box from "@mui/material/Box";
 import { useTheme } from "@mui/system";
+import PostCard from "../components/postCard/postCard";
 
-const Feed = () => {
+const Comunity = () => {
   const theme = useTheme();
   const [open, setOpen] = useState(false);
   const handleClose = () => {
     setOpen(false);
   };
-
-  const lektors = [
-    { label: "Maksim" },
-    { label: "Nikita" },
-    { label: "Egor" },
-    { label: "Maksim" },
-  ];
-
   return (
     <div>
       <Header />
@@ -40,13 +29,13 @@ const Feed = () => {
             alignItem: "center",
           }}
         >
-          <DialogTitle>Создание события</DialogTitle>
+          <DialogTitle>Описание идеи</DialogTitle>
         </Box>
         <DialogContent>
           <Container>
             <TextField
               id="outlined-multiline-static"
-              label="Название"
+              label="Тема"
               multiline
               maxRows={3}
               sx={{ width: "100%", marginBottom: "10px" }}
@@ -59,20 +48,6 @@ const Feed = () => {
               rows={4}
               sx={{ width: "100%", marginBottom: "10px" }}
             />
-
-            <Autocomplete
-              id="country-select-demo"
-              sx={{ width: "100%", marginBottom: "10px" }}
-              options={lektors}
-              autoHighlight
-              renderInput={(params) => (
-                <TextField label="Выбор лектора" {...params} />
-              )}
-            />
-
-            <LocalizationProvider dateAdapter={AdapterDayjs}>
-              <DatePicker sx={{ width: "100%" }} />
-            </LocalizationProvider>
           </Container>
         </DialogContent>
         <DialogActions>
@@ -80,7 +55,7 @@ const Feed = () => {
             onClick={handleClose}
             sx={{ color: theme.palette.primary.black }}
           >
-            Создать
+            Предложить
           </Button>
         </DialogActions>
       </Dialog>
@@ -98,11 +73,8 @@ const Feed = () => {
           variant="contained"
           onClick={() => setOpen(true)}
         >
-          Создать новое событие
+          Предложить что-либо
         </Button>
-        <LocalizationProvider dateAdapter={AdapterDayjs}>
-          <DatePicker label={'"month" and "year"'} views={["month", "year"]} />
-        </LocalizationProvider>
       </Container>
       <Container
         sx={{
@@ -110,10 +82,10 @@ const Feed = () => {
           maxWidth: "1200px",
         }}
       >
-        <FeedCard />
+        <PostCard />
       </Container>
     </div>
   );
 };
 
-export default Feed;
+export default Comunity;

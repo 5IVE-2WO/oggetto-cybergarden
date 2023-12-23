@@ -12,15 +12,13 @@ import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
-import ChatIcon from "@mui/icons-material/Chat";
 import DynamicFeedIcon from "@mui/icons-material/DynamicFeed";
 import PeopleIcon from "@mui/icons-material/People";
 import Divider from "@mui/material/Divider";
-import Paper from "@mui/material/Paper";
-import MenuList from "@mui/material/MenuList";
+import Diversity3Icon from "@mui/icons-material/Diversity3";
 import { useNavigate } from "react-router-dom";
 
-const pages = ["Список пользователей", "Лента", "Чат"];
+const pages = ["Люди", "Лента", "Сообщество"];
 const settings = ["Выход"];
 
 function Header() {
@@ -49,7 +47,7 @@ function Header() {
         navigate("/");
         break;
       case 3:
-        navigate("/chat");
+        navigate("/comunity");
         break;
       default:
         break;
@@ -134,8 +132,11 @@ function Header() {
                   handleCloseNavMenu(3);
                 }}
               >
-                <ChatIcon fontSize="large" sx={{ margin: "0px 5px 0px 0px" }} />
-                Чат
+                <Diversity3Icon
+                  fontSize="large"
+                  sx={{ margin: "0px 5px 0px 0px" }}
+                />
+                Сообщество
               </MenuItem>
               <Divider variant="inset" width="100px" />
             </Menu>
@@ -163,7 +164,9 @@ function Header() {
             {pages.map((page) => (
               <Button
                 key={page}
-                onClick={handleCloseNavMenu}
+                onClick={() => {
+                  handleCloseNavMenu(1 * pages.indexOf(page) + 1, false);
+                }}
                 sx={{ my: 2, color: "black", display: "block" }}
               >
                 {page}
@@ -179,6 +182,7 @@ function Header() {
                   color: "black",
                   display: "flex",
                   margin: "0px 3vw 0px 0px",
+                  padding: "8px 0px 8px 0px",
                 }}
               >
                 Sign In
