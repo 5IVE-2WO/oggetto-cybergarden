@@ -15,8 +15,7 @@ create TABLE events(
 
 create TABLE users(
     id SERIAL NOT NULL PRIMARY KEY,
-    name VARCHAR(255) NOT NULL,
-    specialization VARCHAR(255) NOT NULL
+    name VARCHAR(255) NOT NULL
 );
 
 create TABLE comments(
