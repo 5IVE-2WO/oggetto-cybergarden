@@ -1,7 +1,7 @@
 import Feed from "../pages/feed";
 import Users from "../pages/users";
+import Login from "../pages/login/login"
 import Comunity from "../pages/comunity";
-import Login from "../pages/login/login";
 
 export const adminsRoute = [
   {

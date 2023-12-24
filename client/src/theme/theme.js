@@ -11,6 +11,9 @@ const theme = createTheme({
       black: "#1A1A1A",
       white: "#F4FFEE",
     },
+    secondary: {
+      main: "#1A1A1A",
+    }
   },
   typography: {
     fontFamily: "Montserat, Medium",
