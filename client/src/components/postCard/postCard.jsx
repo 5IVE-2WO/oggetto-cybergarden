@@ -43,7 +43,10 @@ const PostCard = () => {
       <Container sx={{ display: "flex", justifyContent: "space-between" }}>
         <CardHeader
           avatar={
-            <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
+            <Avatar
+              sx={{ bgcolor: red[500], padding: "0" }}
+              aria-label="recipe"
+            >
               ЧМ
             </Avatar>
           }
@@ -68,7 +71,7 @@ const PostCard = () => {
           >
             Пригласить нового человека
           </Typography>
-          <Typography fontFamily={"OpenSans"} color="black">
+          <Typography fontFamily={theme.typography.addition} color="black">
             Предлагаю пригласить петра петровича петровововивичача провести у
             нас масштабное мероприятие настолько масштабное что просто офигеть
             знаете ещё наверно классно было бы наверно если вы захотите

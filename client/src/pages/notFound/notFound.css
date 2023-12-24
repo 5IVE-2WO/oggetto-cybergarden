@@ -1,0 +1,24 @@
+@font-face {
+  font-family: "BebasNeue";
+  font-weight: Bold;
+  font-style: Regular;
+  src: url("../../fonts/Bebas/BebasNeue-Regular.ttf");
+}
+
+.notFound__wrapper {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.notFound__image {
+  width: 65vw;
+  height: 55vh;
+  border: 0px;
+}
+
+.notFound__p {
+  margin: 0 10vw 0 10vw;
+  font-family: BebasNeue;
+}

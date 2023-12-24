@@ -1,5 +1,5 @@
 import { createTheme } from "@mui/material/styles";
-import OpenSans from "../fonts/OpenSans/OpenSans-VariableFont_wdth,wght.ttf";
+import BebasNeue from "../fonts/Bebas/BebasNeue-Regular.ttf";
 import Montserat from "../fonts/montserrat/Montserrat-VariableFont_wght.ttf";
 
 const theme = createTheme({
@@ -11,11 +11,14 @@ const theme = createTheme({
       black: "#1A1A1A",
       white: "#F4FFEE",
     },
+    secondary: {
+      main: "#1A1A1A",
+    },
   },
   typography: {
-    fontFamily: "Montserat, Medium",
+    fontFamily: "BebasNeue, Bold",
     addition: {
-      fontFamily: "Open Sans, Regular",
+      fontFamily: "Montserat, Medium",
     },
   },
 });

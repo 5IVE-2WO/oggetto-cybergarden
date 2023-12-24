@@ -16,8 +16,8 @@ import AdbIcon from "@mui/icons-material/Adb";
 import DynamicFeedIcon from "@mui/icons-material/DynamicFeed";
 import PeopleIcon from "@mui/icons-material/People";
 import Divider from "@mui/material/Divider";
-import Diversity3Icon from "@mui/icons-material/Diversity3";
 import { useNavigate } from "react-router-dom";
+import Diversity3Icon from "@mui/icons-material/Diversity3";
 
 const pages = ["Люди", "Лента", "Сообщество"];
 const settings = ["Выход"];
@@ -42,13 +42,13 @@ function Header() {
     }
     switch (switchNavBar) {
       case 1:
-        navigate("/users");
+        navigate("/people");
         break;
       case 2:
         navigate("/");
         break;
       case 3:
-        navigate("/comunity");
+        navigate("/community");
         break;
       default:
         break;
@@ -72,7 +72,6 @@ function Header() {
             sx={{
               mr: 2,
               display: { xs: "none", md: "flex" },
-              fontFamily: "monospace",
               fontWeight: 700,
               letterSpacing: ".3rem",
               color: "black",
@@ -152,7 +151,6 @@ function Header() {
               mr: 2,
               display: { xs: "flex", md: "none" },
               flexGrow: 1,
-              fontFamily: "monospace",
               fontWeight: 700,
               letterSpacing: ".3rem",
               color: "black",
@@ -165,17 +163,30 @@ function Header() {
             {pages.map((page) => (
               <Button
                 key={page}
-                onClick={() => {
-                  handleCloseNavMenu(1 * pages.indexOf(page) + 1, false);
+                onClick={() =>
+                  handleCloseNavMenu(1 * pages.indexOf(page) + 1, true)
+                }
+                sx={{
+                  my: 2,
+                  color: "black",
+                  display: "block",
+                  padding: "0",
+                  margin: "0 12px 0 12px",
+                  minWidth: "auto",
                 }}
-                sx={{ my: 2, color: "black", display: "block" }}
               >
                 {page}
               </Button>
             ))}
           </Box>
 
-          <Box sx={{ display: "flex" }}>
+          <Box
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
             <Typography fontFamily={"Georgia"}>
               <Button
                 sx={{
@@ -183,7 +194,7 @@ function Header() {
                   color: "black",
                   display: "flex",
                   margin: "0px 3vw 0px 0px",
-                  padding: "8px 0px 8px 0px",
+                  padding: "0",
                 }}
               >
                 Sign In
