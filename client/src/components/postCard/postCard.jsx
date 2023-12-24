@@ -16,6 +16,10 @@ import MoreVertIcon from "@mui/icons-material/MoreVert";
 import Box from "@mui/material/Box";
 import { useState } from "react";
 import { useTheme } from "@emotion/react";
+import { DeleteOutline } from "@mui/icons-material";
+import CreateIcon from "@mui/icons-material/Create";
+import { Container } from "@mui/system";
+import DeleteDialog from "../deleteDialog";
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -31,7 +35,12 @@ const ExpandMore = styled((props) => {
 const PostCard = () => {
   const theme = useTheme();
   const [expanded, setExpanded] = React.useState(false);
-  const [activateNotification, setActivateNotification] = useState(false);
+  const [activateFavourite, setActivateFavourite] = useState(false);
+  const [deleteToogle, setDeleteToogle] = useState(false);
+
+  const deleteHandel = () => {
+    setDeleteToogle((prev) => !prev);
+  };
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
@@ -52,6 +61,14 @@ const PostCard = () => {
         }
         title="Черненко Максим Игоревич"
         subheader="Врач-психолог"
+      />
+      <IconButton aria-label="remove" onClick={deleteHandel}>
+        <DeleteOutline />
+      </IconButton>
+      <DeleteDialog
+        text={"Вы точно хотите удалить этот пост?"}
+        toogleFunction={deleteHandel}
+        toogleConst={deleteToogle}
       />
       <CardContent>
         <Box sx={{ marginBottom: "15px" }}>
