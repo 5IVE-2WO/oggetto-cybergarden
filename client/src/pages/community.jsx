@@ -11,7 +11,7 @@ import Box from "@mui/material/Box";
 import { useTheme } from "@mui/system";
 import PostCard from "../components/postCard/postCard";
 
-const Comunity = () => {
+const Community = () => {
   const theme = useTheme();
   const [open, setOpen] = useState(false);
   const handleClose = () => {
@@ -88,4 +88,4 @@ const Comunity = () => {
   );
 };
 
-export default Comunity;
+export default Community;

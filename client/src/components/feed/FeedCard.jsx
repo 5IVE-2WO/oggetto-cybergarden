@@ -18,9 +18,6 @@ import CreateIcon from "@mui/icons-material/Create";
 import Box from "@mui/material/Box";
 import { useState } from "react";
 import { useTheme } from "@emotion/react";
-import { Container } from "@mui/system";
-import FavoriteIcon from "@mui/icons-material/Favorite";
-import ShareIcon from "@mui/icons-material/Share";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import DeleteDialog from "../deleteDialog";
 
@@ -56,17 +53,17 @@ export default function FeedCard() {
             ЧМ
           </Avatar>
         }
-        action={
-          <IconButton aria-label="settings">
-            <MoreVertIcon />
-          </IconButton>
-        }
         title="Черненко Максим Игоревич"
         subheader="Врач-психолог"
       />
-      <IconButton aria-label="remove" onClick={deleteHandel}>
-        <DeleteOutline />
-      </IconButton>
+      <Box>
+        <IconButton aria-label="edit">
+          <CreateIcon />
+        </IconButton>
+        <IconButton aria-label="remove" onClick={deleteHandel}>
+          <DeleteOutline />
+        </IconButton>
+      </Box>
       <DeleteDialog
         text={"Вы точно хотите удалить это мероприятие?"}
         toogleFunction={deleteHandel}

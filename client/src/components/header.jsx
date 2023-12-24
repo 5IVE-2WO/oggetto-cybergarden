@@ -16,9 +16,8 @@ import ChatIcon from "@mui/icons-material/Chat";
 import DynamicFeedIcon from "@mui/icons-material/DynamicFeed";
 import PeopleIcon from "@mui/icons-material/People";
 import Divider from "@mui/material/Divider";
-import Paper from "@mui/material/Paper";
-import MenuList from "@mui/material/MenuList";
 import { useNavigate } from "react-router-dom";
+import Diversity3Icon from "@mui/icons-material/Diversity3";
 
 const pages = ["Список пользователей", "Лента", "Чат"];
 const settings = ["Выход"];
