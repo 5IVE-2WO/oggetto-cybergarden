@@ -1,7 +1,9 @@
 import Feed from "../pages/feed";
-import Users from "../pages/users";
-import Login from "../pages/login/login"
-import Comunity from "../pages/comunity";
+import People from "../pages/People";
+import Community from "../pages/community";
+import Login from "../pages/login/login";
+import NotFound from "../pages/NotFound/NotFound";
+import Speakers from "../pages/Speakers/Speakers";
 
 export const adminsRoute = [
   {
@@ -10,18 +12,27 @@ export const adminsRoute = [
     exact: true,
   },
   {
-    path: "/users",
-    component: <Users />,
+    path: "/people",
+    component: <People />,
     exact: true,
   },
   {
-    path: "/comunity",
-    component: <Comunity />,
+    path: "/people/:id",
+    component: <Speakers />,
+  },
+  {
+    path: "/community",
+    component: <Community />,
     exact: true,
   },
   {
     path: "/login",
     component: <Login />,
+    exact: true,
+  },
+  {
+    path: "*",
+    component: <NotFound />,
     exact: true,
   },
 ];
@@ -46,18 +57,27 @@ export const userRoute = [
     exact: true,
   },
   {
-    path: "/users",
-    component: <Users />,
+    path: "/people",
+    component: <People />,
     exact: true,
   },
   {
-    path: "/comunity",
-    component: <Comunity />,
+    path: "/people/:id",
+    component: <Speakers />,
+  },
+  {
+    path: "/community",
+    component: <Community />,
     exact: true,
   },
   {
     path: "/login",
     component: <Login />,
+    exact: true,
+  },
+  {
+    path: "*",
+    component: <NotFound />,
     exact: true,
   },
 ];
