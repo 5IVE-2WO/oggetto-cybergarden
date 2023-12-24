@@ -7,6 +7,7 @@ import IconButton from "@mui/material/IconButton";
 import CardHeader from "@mui/material/CardHeader";
 import { DeleteOutline } from "@mui/icons-material";
 import CreateIcon from "@mui/icons-material/Create";
+import { Typography } from "@mui/material";
 
 const UserCard = ({ name, email }) => {
   return (
