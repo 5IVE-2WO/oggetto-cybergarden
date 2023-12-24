@@ -7,23 +7,34 @@ import DialogTitle from "@mui/material/DialogTitle";
 import DialogContent from "@mui/material/DialogContent";
 import DialogActions from "@mui/material/DialogActions";
 import Button from "@mui/material/Button";
-import {Autocomplete, TextField} from "@mui/material";
+import {Autocomplete, Snackbar, Stack, TextField} from "@mui/material";
 import {DateTimeField} from "@mui/x-date-pickers";
 import 'dayjs/locale/de';
 import {useTheme} from "@mui/system";
 import axios from "../utils/axios";
 import dayjs from "dayjs";
-import {useSelector} from "react-redux";
+import Divider from "@mui/material/Divider";
+import Typography from '@mui/material/Typography';
+import Paper from '@mui/material/Paper';
+import { styled } from '@mui/material/styles';
+
+const Item = styled(Paper)(({ theme }) => ({
+    backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+    ...theme.typography.body2,
+    padding: theme.spacing(1),
+    textAlign: 'center',
+    color: theme.palette.text.secondary,
+    shadowColor: '#1A2027'
+}));
+
 
 const Feed = () => {
     const theme = useTheme()
 
-    const [open, setOpen] = useState(false)
+    const [dialogOpen, setDialogOpen] = useState(false)
   
-    const authState = useSelector(state => state.auth)
-
-    const handleClose = () => {
-        setOpen(false)
+    const dialogHandleClose = () => {
+        setDialogOpen(false)
         setTitle('')
         setContent('')
         setSpeaker('')
@@ -34,8 +45,6 @@ const Feed = () => {
     const [content, setContent] = React.useState('')
     const [speaker, setSpeaker] = React.useState(null)
     const [timestamp, setTimestamp] = React.useState(dayjs('2024-01-11T10:30'))
-
-    const [titleErrorStatus, setTitleErrorStatus] = React.useState(false)
 
     // Список спикеров и его получение при загрузке страницы
     const [speakers, setSpeakers] = React.useState([])
@@ -48,19 +57,35 @@ const Feed = () => {
     }, [])
 
     const createEvent = () => {
-        if(title === '' || content === '' || speaker.id === null) return false
         axios.post(`/api/event`, {
             title,
             content,
             timestamp: timestamp.$d.toLocaleString(),
             speaker_id: speaker.id
+        }).then(() => {
+            dialogHandleClose()
+            snackbarHandleOpen()
         })
     }
+
+    const [snackbarOpen, setSnackbarOpen] = React.useState(false);
+
+    const snackbarHandleOpen = () => {
+        setSnackbarOpen(true);
+    };
+
+    const snackbarHandleClose = (event, reason) => {
+        if (reason === 'clickaway') {
+            return;
+        }
+
+        setSnackbarOpen(false);
+    };
 
     return (
         <div>
             <Header/>
-            <Dialog open={open} onClose={handleClose} maxWidth="sm" fullWidth="true">
+            <Dialog open={dialogOpen} onClose={dialogHandleClose} maxWidth="sm" fullWidth="true">
                 <DialogTitle
                     sx = {{
                         display: 'flex',
@@ -76,6 +101,7 @@ const Feed = () => {
                 >
                     <Container
                     >
+                        <Typography align='center'>Основная информация</Typography>
                         <TextField
                             color = "secondary"
                             margin = "dense"
@@ -143,6 +169,43 @@ const Feed = () => {
                                 (newValue) => setTimestamp(newValue)
                             }
                         />
+                        <Divider sx = {{ marginTop: '20px', marginBottom: '20px' }}/>
+                        <Typography align='center'>Раздел ссылок</Typography>
+                        <Stack spacing={2}>
+                            <Item>
+                                <TextField
+                                color = "secondary"
+                                margin = "dense"
+                                fullWidth
+                                size='small'
+                                label = "Заголовок"
+                                value = { title }
+                                onChange = {
+                                    (event) => {
+                                        setTitle(event.target.value)
+                                    }
+                                }
+                                sx = {{
+                                    borderColor: theme.palette.primary.black
+                                }}
+                            />
+                                <TextField
+                                    color = "secondary"
+                                    margin = "dense"
+                                    fullWidth
+                                    size='small'
+                                    label = "URL"
+                                    value = { title }
+                                    onChange = {
+                                        (event) => {
+                                            setTitle(event.target.value)
+                                        }
+                                    }
+                                    sx = {{
+                                        borderColor: theme.palette.primary.black
+                                    }}
+                                /></Item>
+                        </Stack>
                     </Container>
                 </DialogContent>
                 <DialogActions
@@ -166,7 +229,7 @@ const Feed = () => {
                     </Button>
                     <Button
                         variant = "contained"
-                        onClick = {handleClose}
+                        onClick = {dialogHandleClose}
                         sx = {{
                             color: theme.palette.primary.black,
                             borderColor: theme.palette.primary.main
@@ -187,12 +250,18 @@ const Feed = () => {
                 <Button
                     style={{marginBottom: "10px"}}
                     variant='contained'
-                    onClick={() => setOpen(true)}
+                    onClick={() => setDialogOpen(true)}
                 >
                     Создать новое событие
                 </Button>
                 <FeedCard/>
             </Container>
+            <Snackbar
+                open = {snackbarOpen}
+                autoHideDuration = {2000}
+                onClose = {snackbarHandleClose}
+                message = "Событие создано"
+            />
         </div>
     );
 };
