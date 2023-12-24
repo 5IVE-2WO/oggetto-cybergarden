@@ -15,8 +15,8 @@ import AdbIcon from "@mui/icons-material/Adb";
 import DynamicFeedIcon from "@mui/icons-material/DynamicFeed";
 import PeopleIcon from "@mui/icons-material/People";
 import Divider from "@mui/material/Divider";
-import Diversity3Icon from "@mui/icons-material/Diversity3";
 import { useNavigate } from "react-router-dom";
+import Diversity3Icon from "@mui/icons-material/Diversity3";
 
 const pages = ["Люди", "Лента", "Сообщество"];
 const settings = ["Выход"];
@@ -164,9 +164,7 @@ function Header() {
             {pages.map((page) => (
               <Button
                 key={page}
-                onClick={() => {
-                  handleCloseNavMenu(1 * pages.indexOf(page) + 1, false);
-                }}
+                onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: "black", display: "block" }}
               >
                 {page}

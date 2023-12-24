@@ -10,15 +10,14 @@ import Avatar from "@mui/material/Avatar";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import { red } from "@mui/material/colors";
-import NotificationsActiveIcon from "@mui/icons-material/NotificationsActive";
 import SendIcon from "@mui/icons-material/Send";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import Box from "@mui/material/Box";
 import { useState } from "react";
 import { useTheme } from "@emotion/react";
 import { DeleteOutline } from "@mui/icons-material";
-import CreateIcon from "@mui/icons-material/Create";
-import { Container } from "@mui/system";
+import FavoriteIcon from "@mui/icons-material/Favorite";
+
 import DeleteDialog from "../deleteDialog";
 
 const ExpandMore = styled((props) => {
@@ -90,14 +89,10 @@ const PostCard = () => {
       <CardActions disableSpacing>
         <IconButton
           aria-label="Notification"
-          onClick={() => setActivateNotification(!activateNotification)}
+          onClick={() => setActivateFavourite(!activateFavourite)}
         >
-          <NotificationsActiveIcon
-            sx={
-              activateNotification
-                ? { color: theme.palette.primary.dark }
-                : { color: "grey" }
-            }
+          <FavoriteIcon
+            sx={activateFavourite ? { color: { red } } : { color: "grey" }}
           />
         </IconButton>
         <ExpandMore
