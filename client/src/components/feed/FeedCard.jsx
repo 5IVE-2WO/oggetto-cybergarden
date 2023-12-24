@@ -10,11 +10,19 @@ import Avatar from "@mui/material/Avatar";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import { red } from "@mui/material/colors";
+
+import NotificationsActiveIcon from "@mui/icons-material/NotificationsActive";
+import SendIcon from "@mui/icons-material/Send";
+import { DeleteOutline } from "@mui/icons-material";
+import CreateIcon from "@mui/icons-material/Create";
+import Box from "@mui/material/Box";
+import { useState } from "react";
+import { useTheme } from "@emotion/react";
+import { Container } from "@mui/system";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import ShareIcon from "@mui/icons-material/Share";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import MoreVertIcon from "@mui/icons-material/MoreVert";
-import Box from "@mui/material/Box";
+import DeleteDialog from "../deleteDialog";
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -29,6 +37,12 @@ const ExpandMore = styled((props) => {
 
 export default function FeedCard() {
   const [expanded, setExpanded] = React.useState(false);
+  const [activateNotification, setActivateNotification] = useState(false);
+  const [deleteToogle, setDeleteToogle] = useState(false);
+
+  const deleteHandel = () => {
+    setDeleteToogle((prev) => !prev);
+  };
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
@@ -49,6 +63,14 @@ export default function FeedCard() {
         }
         title="Черненко Максим Игоревич"
         subheader="Врач-психолог"
+      />
+      <IconButton aria-label="remove" onClick={deleteHandel}>
+        <DeleteOutline />
+      </IconButton>
+      <DeleteDialog
+        text={"Вы точно хотите удалить это мероприятие?"}
+        toogleFunction={deleteHandel}
+        toogleConst={deleteToogle}
       />
       <CardContent>
         <Box sx={{ marginBottom: "15px" }}>
